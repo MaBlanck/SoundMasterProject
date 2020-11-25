@@ -55,16 +55,22 @@ class Cart extends Array {
             let orderItem = catalog.getProduct(this[currentProduct].reference);
 
             // Création des éléments
-            let orderLine = document.createElement('tr');
-            let description = document.createElement('td');
-            let price = document.createElement('td');
-            let quantity = document.createElement('td');
+            let orderLine = document.createElement('div');
+            let description = document.createElement('div');
+            let price = document.createElement('div');
+            let quantity = document.createElement('div');
             let addItemBtn = document.createElement('button');
             let removeItemBtn = document.createElement('button');
-            let subTotal = document.createElement('td');
-            let removeBtnCol = document.createElement('td');
+            let subTotal = document.createElement('div');
+            let removeBtnCol = document.createElement('div');
             let removeBtn = document.createElement('button');
 
+            description.classList.add('col-5')
+            price.classList.add('col-2')
+            quantity.classList.add('col-2')
+            subTotal.classList.add('col-2')
+            removeBtnCol.classList.add('col-1')
+            
             // Remplissage des éléments
             description.textContent = orderItem.description;
             price.textContent = orderItem.price + ' €';
@@ -101,7 +107,7 @@ class Cart extends Array {
 
         if (!this.length) {
             let orderLine = document.createElement('tr');
-            let emptyCartNotice = document.createElement('td');
+            let emptyCartNotice = document.createElement('th');
             emptyCartNotice.setAttribute('colspan', '4');
             emptyCartNotice.classList.add('text-center');
             emptyCartNotice.textContent = 'Votre panier est vide.';
