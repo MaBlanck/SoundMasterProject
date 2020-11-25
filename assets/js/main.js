@@ -25,3 +25,6 @@ data.forEach(element => {
     currentProduct.setDescription(element[2]).setImgPath(element[3]).setPrice(element[4]);
     catalog.addProduct(currentProduct);
 });
+
+// Initialisation du panier
+let cart = new Array();
