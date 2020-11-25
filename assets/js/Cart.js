@@ -11,9 +11,9 @@ class Cart extends Array {
         this.catalog = catalog;
     }
 
-    // Appelé lors d'un ajout au panier
+    // Rajoute un produit au panier
     addProduct(reference, quantity) {
-        // Si rérénce déjà dans le panier, incrémentation de la quantité
+        // Si la référence existe déjà dans le panier, on augmente juste la quantité
         for (let i = 0; i < this.length; i++) {
             if (this[i].reference == reference) {
                 this.addItem(i);
@@ -24,16 +24,19 @@ class Cart extends Array {
         this.push({"reference": reference, "quantity": quantity});
     }
 
-    // Retire une ligne de commande
+    // Retire un produit de la commande
     removeProduct(index) {
         this.splice(index, 1);
         this.updateOrderList();
     }
 
+    // Appelé pour rajouter 1 produit
     addItem(itemIndex) {
         this[itemIndex].quantity++;
         this.updateOrderList();
     }
+
+    // Appelé pour retire 1 produit
     removeItem(itemIndex) {
         this[itemIndex].quantity--;
         this.updateOrderList();
@@ -42,10 +45,10 @@ class Cart extends Array {
     // Mise à jour dynamique de la liste de commande
     updateOrderList() {
         // Récupération du <tbody> contenant la liste des achats
-        let orderList = document.getElementById('order-list');
-        orderList.innerHTML = '';
+        let orderLine = document.getElementById('order-list');
+        orderLine.innerHTML = '';
 
-        // Récupération de l'élément Total
+        // Récupération des éléments affichant les totaux
         let totalDisplay = document.getElementById('cart-total');
         let total = 0;
 
@@ -56,6 +59,7 @@ class Cart extends Array {
 
             // Création des éléments
             let orderLine = document.createElement('div');
+            // Création des éléments pour une ligne du tableau
             let description = document.createElement('div');
             let price = document.createElement('div');
             let quantity = document.createElement('div');
@@ -65,21 +69,23 @@ class Cart extends Array {
             let removeBtnCol = document.createElement('div');
             let removeBtn = document.createElement('button');
 
-            description.classList.add('col-5')
-            price.classList.add('col-2')
-            quantity.classList.add('col-2')
-            subTotal.classList.add('col-2')
-            removeBtnCol.classList.add('col-1')
-            
+            // Ajout des classes Bootstrap aux éléments créés
+            description.classList.add('col-12', 'col-lg-5');
+            price.classList.add('col-3', 'col-lg-2');
+            quantity.classList.add('col-3', 'col-lg-2');
+            subTotal.classList.add('col-3', 'col-lg-2');
+            removeBtnCol.classList.add('col-3', 'col-lg-1');
+
             // Remplissage des éléments
             description.textContent = orderItem.description;
             price.textContent = orderItem.price + ' €';
             subTotal.textContent = this[currentProduct].quantity * orderItem.price + ' €';
             total += this[currentProduct].quantity * orderItem.price;
+            
             // Création des boutons pour augmenter/diminuer la quantité
             let quantityText = document.createTextNode(' ' + this[currentProduct].quantity + ' ');
             removeItemBtn.addEventListener('click', () => this.removeItem(currentProduct));
-            removeItemBtn.classList.add('btn', 'btn-primary', 'btn-sm', '');
+            removeItemBtn.classList.add('btn', 'btn-primary', 'btn-sm');
             removeItemBtn.textContent = '-';
             addItemBtn.addEventListener('click', () => this.addItem(currentProduct));
             addItemBtn.classList.add('btn', 'btn-primary', 'btn-sm');
@@ -100,11 +106,9 @@ class Cart extends Array {
             orderLine.appendChild(quantity);
             orderLine.appendChild(subTotal);
             orderLine.appendChild(removeBtnCol);
-
-            // Ajout de la ligne à la liste de commande
-            orderList.appendChild(orderLine);
         }
 
+        // Si panier vide : afficher un message
         if (!this.length) {
             let orderLine = document.createElement('tr');
             let emptyCartNotice = document.createElement('th');
@@ -112,9 +116,9 @@ class Cart extends Array {
             emptyCartNotice.classList.add('text-center');
             emptyCartNotice.textContent = 'Votre panier est vide.';
             orderLine.appendChild(emptyCartNotice);
-            orderList.appendChild(orderLine);
         }
 
+        // Mise à jour du total de la mcommande
         totalDisplay.textContent = total + ' €';
     }
 }
