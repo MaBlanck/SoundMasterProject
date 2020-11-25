@@ -1,3 +1,13 @@
+body {
+    font-size: 1rem;
+    background-color: aqua;
+}
+a:hover {
+    background-color: rgba(0, 102, 128, 0.507);
+}
+ul::first-letter {
+    size: 2em;
+}
 h2{
     text-align: center;
 }
@@ -9,4 +19,17 @@ strong{
 }
 .instrumentImageSize {
     height: 20em;
+}
+.instrumentImageBigSize {
+    height: 15em;
+}
+.mainTitle {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 8em;
+    letter-spacing: 0.1em;
+    
+}
+.secondMainTitle {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 4em;
 }
