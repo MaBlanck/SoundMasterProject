@@ -19,6 +19,7 @@ let data = [
     ['D004', 'Pearl Travel Conga', '11" Travel Conga', 'assets/img/Conga.png', 377]
 ];
 
+// Sert à peupler le catalogue avec les produits
 data.forEach(element => {
     let currentProduct = new Product(element[0], element[1]);
     currentProduct.setDescription(element[2]).setImgPath(element[3]).setPrice(element[4]);

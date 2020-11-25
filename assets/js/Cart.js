@@ -49,7 +49,6 @@ class Cart extends Array {
         orderLine.innerHTML = '';
 
         // Récupération des éléments affichant les totaux
-        let totalOrder = document.getElementById('order-list-total');
         let totalDisplay = document.getElementById('cart-total');
         let total = 0;
 
@@ -70,10 +69,10 @@ class Cart extends Array {
 
             // Ajout des classes Bootstrap aux éléments créés
             description.classList.add('col-12', 'col-lg-5');
-            price.classList.add('col-3 col-lg-2');
-            price.classList.add('col-3 col-lg-2');
-            price.classList.add('col-3 col-lg-2');
-            price.classList.add('col-3 col-lg-1');
+            price.classList.add('col-3', 'col-lg-2');
+            quantity.classList.add('col-3', 'col-lg-2');
+            subTotal.classList.add('col-3', 'col-lg-2');
+            removeBtnCol.classList.add('col-3', 'col-lg-1');
 
             // Remplissage des éléments
             description.textContent = orderItem.description;
@@ -114,11 +113,9 @@ class Cart extends Array {
             emptyCartNotice.classList.add('text-center');
             emptyCartNotice.textContent = 'Votre panier est vide.';
             orderLine.appendChild(emptyCartNotice);
-            orderList.appendChild(orderLine);
         }
 
         // Mise à jour du total de la mcommande
-        totalOrder.textContent = total + ' €';
         totalDisplay.textContent = total + ' €';
     }
 }
