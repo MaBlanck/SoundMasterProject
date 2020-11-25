@@ -1,3 +1,7 @@
+/*
+    Classe Product
+    représente un produit du catalogue
+*/
 class Product {
     reference;
     name;
