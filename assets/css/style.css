@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+
 body {
     font-size: 1rem;
-    background-color: aqua;
+    background: url('../img/backgroundBodyImage.jpg') fixed no-repeat;
 }
 a:hover {
-    background-color: rgba(0, 102, 128, 0.507);
+    background-color:#d1be7d;
 }
 ul::first-letter {
     size: 2em;
@@ -23,6 +26,10 @@ strong{
 .instrumentImageBigSize {
     height: 15em;
 }
+/*HEADER*/
+#mainHeader {
+    background-color: #d1be7d;
+}
 .mainTitle {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 8em;
@@ -30,6 +37,27 @@ strong{
     
 }
 .secondMainTitle {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 2em;
+    font-style: italic;
+}
+.container {
+    background-color:  white;
+}
+/*TITRES DE SECTIONS*/
+.sectionTitle {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: #d1be7d;
+    letter-spacing: 0.1em;
     font-size: 4em;
+    margin: 0;
+    background-color: black;
+    width: 50%;
+}
+#navBar {
+    background-color: black;
+    color: #d1be7d;
+}
+.navbar {
+    width: 500px;
 }
