@@ -11,6 +11,12 @@ a {
 h2{
     text-align: center;
 }
+h3 {
+    font-family:'Permanent Marker', cursive;
+}
+li {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
 strong{
     float: right
 }
