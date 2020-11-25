@@ -30,7 +30,7 @@ data.forEach(element => {
 *FLECHE POUR REMONTER EN HAUT DE PAGE
 */
 let returnTop = document.createElement('p');
-returnTop.innerHTML = '<i class="fas fa-angle-up fa-2x"></i>';
+returnTop.innerHTML = '<i class="fas fa-arrow-up fa-3x"></i>';
 document.body.appendChild(returnTop);
 returnTop.style.position = 'fixed';
 returnTop.style.color = 'black';
