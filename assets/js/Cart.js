@@ -45,8 +45,8 @@ class Cart extends Array {
     // Mise à jour dynamique de la liste de commande
     updateOrderList() {
         // Récupération du <tbody> contenant la liste des achats
-        let orderList = document.getElementById('order-list');
-        orderList.innerHTML = '';
+        let orderLine = document.getElementById('order-list');
+        orderLine.innerHTML = '';
 
         // Récupération des éléments affichant les totaux
         let totalOrder = document.getElementById('order-list-total');
@@ -59,15 +59,21 @@ class Cart extends Array {
             let orderItem = catalog.getProduct(this[currentProduct].reference);
 
             // Création des éléments pour une ligne du tableau
-            let orderLine = document.createElement('tr');
-            let description = document.createElement('td');
-            let price = document.createElement('td');
-            let quantity = document.createElement('td');
+            let description = document.createElement('div');
+            let price = document.createElement('div');
+            let quantity = document.createElement('div');
             let addItemBtn = document.createElement('button');
             let removeItemBtn = document.createElement('button');
-            let subTotal = document.createElement('td');
-            let removeBtnCol = document.createElement('td');
+            let subTotal = document.createElement('div');
+            let removeBtnCol = document.createElement('div');
             let removeBtn = document.createElement('button');
+
+            // Ajout des classes Bootstrap aux éléments créés
+            description.classList.add('col-12', 'col-lg-5');
+            price.classList.add('col-3 col-lg-2');
+            price.classList.add('col-3 col-lg-2');
+            price.classList.add('col-3 col-lg-2');
+            price.classList.add('col-3 col-lg-1');
 
             // Remplissage des éléments
             description.textContent = orderItem.description;
@@ -98,9 +104,6 @@ class Cart extends Array {
             orderLine.appendChild(quantity);
             orderLine.appendChild(subTotal);
             orderLine.appendChild(removeBtnCol);
-
-            // Ajout de la ligne à la liste de commande
-            orderList.appendChild(orderLine);
         }
 
         // Si panier vide : afficher un message
