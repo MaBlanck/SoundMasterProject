@@ -64,3 +64,30 @@ window.onscroll = function () {
         returnTop.style.visibility = 'hidden';
     }
 };
+
+//FAIS APPARAITRE LA CATEGORIE SOUHAITEE AU CLIC SUR LE LIEN NAVBAR
+/* let categoryList = document.getElementsByTagName('section');// 
+for (const element of categoryList) {
+    element.style.display = 'none';
+};
+let categpryListLink = document.getElementsByClassName('nav-link');
+for (const element of categoryListLink) {
+    element.addEventListener('click', showCategory)
+} */
+/*
+* La fonction permet d'afficher la catégorie choisie.
+*/
+/* function showCategory() { */
+    //categoryPosition contient la position du début de la chaine. le +1 est là car nous voulions non pas le # mais ce qui vient APRES
+    /* let categoryPosition = this.href.indexOf('#') + 1;//this fait référence à ce qui a déclenché l'évènement
+    let category = this.href.substring(categoryPosition);
+    //on parcours la liste des catégories pour afficher que celle selectionnée
+    for (const element of categoryList) {
+        if (element.id == category) {
+            element.style.display = 'block';
+        } else {
+            element.style.display = 'none'
+        }
+    }
+}
+ */
