@@ -30,7 +30,7 @@ data.forEach(element => {
 *FLECHE POUR REMONTER EN HAUT DE PAGE
 */
 let returnTop = document.createElement('p');
-returnTop.innerHTML = '<i class="fas fa-angle-up fa-2x"></i>';
+returnTop.innerHTML = '<img src="https://img.icons8.com/windows/32/000000/long-arrow-up.png"/>';
 document.body.appendChild(returnTop);
 returnTop.style.position = 'fixed';
 returnTop.style.color = 'black';
