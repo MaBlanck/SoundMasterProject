@@ -55,6 +55,7 @@ strong{
     font-size: 4em;
     margin: 0;
     background-color: black;
+    
 }
 /*NAVBAR*/
 #navBar {
@@ -63,4 +64,15 @@ strong{
 }
 .navbar-toggler-icon {
     background-color: #d1be7d;
+}
+/*CENTRER LES PHOTOS*/
+.centerItem{
+    text-align: center;
+}
+
+/*FOOTER*/
+footer {
+    height: 20em;
+    background-color: black;
+    color: #d1be7d;
 }

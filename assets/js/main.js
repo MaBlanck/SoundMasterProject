@@ -25,3 +25,34 @@ data.forEach(element => {
     currentProduct.setDescription(element[2]).setImgPath(element[3]).setPrice(element[4]);
     catalog.addProduct(currentProduct);
 });
+
+/*
+*FLECHE POUR REMONTER EN HAUT DE PAGE
+*/
+let returnTop = document.createElement('p');
+returnTop.innerHTML = '<i class="fas fa-angle-up fa-2x"></i>';
+document.body.appendChild(returnTop);
+returnTop.style.position = 'fixed';
+returnTop.style.color = 'black';
+returnTop.style.bottom = '0';
+returnTop.style.right = '0';
+returnTop.style.visibility = 'hidden';
+returnTop.style.transform = '';
+returnTop.style.marginRight = '50px';
+function scrollUp() {
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+    })
+};
+returnTop.addEventListener('click', scrollUp);
+//Animation apparition disparition de la flèche pour retour en haut de page
+window.onscroll = function () {
+    let y = window.scrollY;
+    if (y > 600) {
+        returnTop.style.visibility = 'initial';
+    } else {
+        returnTop.style.visibility = 'hidden';
+    }
+};
