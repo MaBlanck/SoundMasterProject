@@ -36,9 +36,9 @@ addToCartBtns.forEach(element => element.addEventListener('click', () => cart.ad
 /*
 *FLECHE POUR REMONTER EN HAUT DE PAGE
 */
-let returnTop = document.createElement('p');
+let returnTop = document.createElement('span');
 returnTop.innerHTML = '<img src="https://img.icons8.com/windows/32/000000/long-arrow-up.png"/>';
-document.body.appendChild(returnTop);
+document.body.footer.appendChild(returnTop);
 returnTop.style.position = 'fixed';
 returnTop.style.color = 'black';
 returnTop.style.bottom = '0';
