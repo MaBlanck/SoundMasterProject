@@ -71,12 +71,12 @@ class Cart extends Array {
             subTotal.textContent = this[currentProduct].quantity * orderItem.price + ' €';
             total += this[currentProduct].quantity * orderItem.price;
             // Création des boutons pour augmenter/diminuer la quantité
-            let quantityText = document.createTextNode(this[currentProduct].quantity);
+            let quantityText = document.createTextNode(' ' + this[currentProduct].quantity + ' ');
             removeItemBtn.addEventListener('click', () => this.removeItem(currentProduct));
-            removeItemBtn.classList.add('btn', 'btn-primary');
+            removeItemBtn.classList.add('btn', 'btn-primary', 'btn-sm', '');
             removeItemBtn.textContent = '-';
             addItemBtn.addEventListener('click', () => this.addItem(currentProduct));
-            addItemBtn.classList.add('btn', 'btn-primary');
+            addItemBtn.classList.add('btn', 'btn-primary', 'btn-sm');
             addItemBtn.textContent = '+';
             quantity.appendChild(removeItemBtn);
             quantity.appendChild(quantityText);
@@ -84,6 +84,7 @@ class Cart extends Array {
             
             // Création du bouton pour retirer le produit
             removeBtn.addEventListener('click', () => this.removeProduct(currentProduct));
+            removeBtn.classList.add('btn', 'btn-primary');
             removeBtn.textContent = '×';
             removeBtnCol.appendChild(removeBtn);
 
