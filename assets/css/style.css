@@ -8,9 +8,6 @@ body {
 a {
     color:#d1be7d;
 }
-ul::first-letter {
-    size: 2em;
-}
 h2{
     text-align: center;
 }
@@ -32,7 +29,7 @@ strong{
 }
 .mainTitle {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 8em;
+    font-size: 7em;
     letter-spacing: 0.1em;
     
 }
@@ -68,8 +65,11 @@ strong{
 }
 
 /*FOOTER*/
-footer {
+.footer {
     height: 20em;
     background-color: black;
     color: #d1be7d;
+}
+.footerTitle {
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
