@@ -3,6 +3,7 @@
     représente le catalogue des produits
 */
 class Catalog extends Array {
+    // Rajoute un produit au catalogue
     addProduct(product) {
         this.push(product);
     }

@@ -11,9 +11,9 @@ class Cart extends Array {
         this.catalog = catalog;
     }
 
-    // Appelé lors d'un ajout au panier
+    // Rajoute un produit au panier
     addProduct(reference, quantity) {
-        // Si rérénce déjà dans le panier, incrémentation de la quantité
+        // Si la référence existe déjà dans le panier, on augmente juste la quantité
         for (let i = 0; i < this.length; i++) {
             if (this[i].reference == reference) {
                 this.addItem(i);
@@ -24,16 +24,19 @@ class Cart extends Array {
         this.push({"reference": reference, "quantity": quantity});
     }
 
-    // Retire une ligne de commande
+    // Retire un produit de la commande
     removeProduct(index) {
         this.splice(index, 1);
         this.updateOrderList();
     }
 
+    // Appelé pour rajouter 1 produit
     addItem(itemIndex) {
         this[itemIndex].quantity++;
         this.updateOrderList();
     }
+
+    // Appelé pour retire 1 produit
     removeItem(itemIndex) {
         this[itemIndex].quantity--;
         this.updateOrderList();
@@ -45,7 +48,8 @@ class Cart extends Array {
         let orderList = document.getElementById('order-list');
         orderList.innerHTML = '';
 
-        // Récupération de l'élément Total
+        // Récupération des éléments affichant les totaux
+        let totalOrder = document.getElementById('order-list-total');
         let totalDisplay = document.getElementById('cart-total');
         let total = 0;
 
@@ -54,7 +58,7 @@ class Cart extends Array {
             // Récupération des infos pour le produit en cours
             let orderItem = catalog.getProduct(this[currentProduct].reference);
 
-            // Création des éléments
+            // Création des éléments pour une ligne du tableau
             let orderLine = document.createElement('tr');
             let description = document.createElement('td');
             let price = document.createElement('td');
@@ -73,7 +77,7 @@ class Cart extends Array {
             // Création des boutons pour augmenter/diminuer la quantité
             let quantityText = document.createTextNode(' ' + this[currentProduct].quantity + ' ');
             removeItemBtn.addEventListener('click', () => this.removeItem(currentProduct));
-            removeItemBtn.classList.add('btn', 'btn-primary', 'btn-sm', '');
+            removeItemBtn.classList.add('btn', 'btn-primary', 'btn-sm');
             removeItemBtn.textContent = '-';
             addItemBtn.addEventListener('click', () => this.addItem(currentProduct));
             addItemBtn.classList.add('btn', 'btn-primary', 'btn-sm');
@@ -99,6 +103,7 @@ class Cart extends Array {
             orderList.appendChild(orderLine);
         }
 
+        // Si panier vide : afficher un message
         if (!this.length) {
             let orderLine = document.createElement('tr');
             let emptyCartNotice = document.createElement('td');
@@ -109,6 +114,8 @@ class Cart extends Array {
             orderList.appendChild(orderLine);
         }
 
+        // Mise à jour du total de la mcommande
+        totalOrder.textContent = total + ' €';
         totalDisplay.textContent = total + ' €';
     }
 }

@@ -1,6 +1,5 @@
 // Initialisation du catalogue des produits
 let catalog = new Catalog();
-
 let data = [
     ['G001', 'Ovation Celebrity', 'CE48P-TGE Elite Plus', 'assets/img/guit.jpg', 498],
     ['G002', 'Harley Benton Custom Line', 'CLJ-412E NT', 'assets/img/guitar.jpg', 248],
@@ -26,10 +25,11 @@ data.forEach(element => {
     catalog.addProduct(currentProduct);
 });
 
-// Initialisation du panier, son bouton et les boutons d'ajout
+// Initialisation du panier, son bouton
 let cart = new Cart(catalog);
 let cartBtn = document.getElementById('cart-button');
 cartBtn.addEventListener('click', () => cart.updateOrderList());
+// Initialisation des boutons d'ajout pour chaque produit
 addToCartBtns = document.querySelectorAll('button.shop');
 addToCartBtns.forEach(element => element.addEventListener('click', () => cart.addProduct(element.dataset.reference, 1)));
 
