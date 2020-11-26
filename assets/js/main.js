@@ -91,11 +91,11 @@ for (const element of sectionListLink) {
 section alors on fera apparaitre le contenu sinon il restera caché si son id est différent de navBar.
 */
 function showSection() {
-    let sectionPosition = this.href.indexOf('#') + 1;
-    let section = this.href.substring(sectionPosition);
+    let sectionNamePosition = this.href.indexOf('#') + 1;
+    let nameSection = this.href.substring(sectionNamePosition);
 
     for (const element of sectionList) {
-        if (element.id == section) {
+        if (element.id == nameSection) {
             element.style.display = 'block';
         } else {
             if (element.id != 'navBar') {
