@@ -65,29 +65,36 @@ window.onscroll = function () {
     }
 };
 
-//FAIS APPARAITRE LA CATEGORIE SOUHAITEE AU CLIC SUR LE LIEN NAVBAR
-/* let categoryList = document.getElementsByTagName('section');// 
-for (const element of categoryList) {
-    element.style.display = 'none';
-};
-let categpryListLink = document.getElementsByClassName('nav-link');
-for (const element of categoryListLink) {
-    element.addEventListener('click', showCategory)
-} */
+// Affichage des Sections au clique.
+let sectionList = document.getElementsByTagName('section'); 
+
 /*
-* La fonction permet d'afficher la catégorie choisie.
+* La boucle va parcourir tout les éléments de sectionList, en lui ajoutant une condition if que si element.id est différent de navBar alors on cache tout le reste et seul la navBar seras visible
 */
-/* function showCategory() { */
-    //categoryPosition contient la position du début de la chaine. le +1 est là car nous voulions non pas le # mais ce qui vient APRES
-    /* let categoryPosition = this.href.indexOf('#') + 1;//this fait référence à ce qui a déclenché l'évènement
-    let category = this.href.substring(categoryPosition);
-    //on parcours la liste des catégories pour afficher que celle selectionnée
-    for (const element of categoryList) {
-        if (element.id == category) {
-            element.style.display = 'block';
-        } else {
-            element.style.display = 'none'
-        }
+for (const element of sectionList) {
+    if (element.id != 'navBar') {
+        element.style.display = 'none';
     }
 }
- */
+
+let sectionListLink = document.getElementsByClassName('nav-link');
+for (const element of sectionListLink) {
+    element.addEventListener('click', showSection)
+}
+
+
+function showSection() {
+    let sectionPosition = this.href.indexOf('#') + 1;
+    let section = this.href.substring(sectionPosition);
+
+    for (const element of sectionList) {
+        console.log(element.id, section);
+        if (element.id == section) {
+            element.style.display = 'block';
+        } else {
+            if (element.id != 'navBar') {
+                element.style.display = 'none';
+            }
+        }
+    }
+} 
