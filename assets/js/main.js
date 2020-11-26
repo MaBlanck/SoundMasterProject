@@ -66,30 +66,37 @@ window.onscroll = function () {
 };
 
 // Affichage des Sections au clique.
-let sectionList = document.getElementsByTagName('section'); 
+let sectionList = document.getElementsByTagName('section');
 
 /*
-* La boucle va parcourir tout les éléments de sectionList, en lui ajoutant une condition if que si element.id est différent de navBar alors on cache tout le reste et seul la navBar seras visible
+* La boucle va parcourir tout les éléments de sectionList, et si element.id est différent de navBar 
+alors on cache tout le reste et seul la navBar sera visible.
 */
 for (const element of sectionList) {
     if (element.id != 'navBar') {
         element.style.display = 'none';
     }
 }
-
+/*
+* La boucle va parcourir tout les éléments de la variable sectionListLink composé de nav-link 
+en lui ajoutant un évènement au clique qui fera appel à la fonction showSection.
+*/
 let sectionListLink = document.getElementsByClassName('nav-link');
 for (const element of sectionListLink) {
     element.addEventListener('click', showSection)
 }
 
-
+/*
+* On créé une fonction "showSection" qui comporteras une boucle avec une condition. Si le id de l'élément est égale à la variable 
+section alors on fera apparaitre le contenu sinon il restera caché si son id est différent de navBar.
+*/
 function showSection(event) {
     event.preventDefault();
-    let sectionPosition = this.href.indexOf('#') + 1;
-    let section = this.href.substring(sectionPosition);
+    let sectionNamePosition = this.href.indexOf('#') + 1;
+    let nameSection = this.href.substring(sectionNamePosition);
 
     for (const element of sectionList) {
-        if (element.id == section) {
+        if (element.id == nameSection) {
             element.style.display = 'block';
             window.scrollTo(0, element.offsetTop - 65);
         } else {
