@@ -5,7 +5,7 @@
 class Cart extends Array {
     catalog;
 
-    // Constructeur, prend en paramètre le catalogue peuplé au préalable
+    // Constructeur, prend en paramètre le catalogue peuplé(rempli) au préalable
     constructor(catalog) {
         super();
         this.catalog = catalog;
@@ -30,13 +30,13 @@ class Cart extends Array {
         this.updateOrderList();
     }
 
-    // Appelé pour rajouter 1 produit
+    // Fonction Appelée pour rajouter 1 produit
     addItem(itemIndex) {
         this[itemIndex].quantity++;
         this.updateOrderList();
     }
 
-    // Appelé pour retire 1 produit
+    // Fonction Appelée pour retire 1 produit
     removeItem(itemIndex) {
         this[itemIndex].quantity--;
         this.updateOrderList();
@@ -81,7 +81,7 @@ class Cart extends Array {
             price.textContent = orderItem.price + ' €';
             subTotal.textContent = this[currentProduct].quantity * orderItem.price + ' €';
             total += this[currentProduct].quantity * orderItem.price;
-            
+
             // Création des boutons pour augmenter/diminuer la quantité
             let quantityText = document.createTextNode(' ' + this[currentProduct].quantity + ' ');
             removeItemBtn.addEventListener('click', () => this.removeItem(currentProduct));
