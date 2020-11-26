@@ -14,6 +14,9 @@ h2{
 h3 {
     font-family:'Permanent Marker', cursive;
 }
+.thirdMainTitle {
+    font-size: 0.9em;
+}
 li {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
