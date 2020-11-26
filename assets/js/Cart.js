@@ -57,8 +57,6 @@ class Cart extends Array {
             // Récupération des infos pour le produit en cours
             let orderItem = catalog.getProduct(this[currentProduct].reference);
 
-            // Création des éléments
-            let orderLine = document.createElement('div');
             // Création des éléments pour une ligne du tableau
             let description = document.createElement('div');
             let price = document.createElement('div');
@@ -70,9 +68,9 @@ class Cart extends Array {
             let removeBtn = document.createElement('button');
 
             // Ajout des classes Bootstrap aux éléments créés
-            description.classList.add('col-12', 'col-lg-5');
+            description.classList.add('col-12', 'col-lg-4');
             price.classList.add('col-3', 'col-lg-2');
-            quantity.classList.add('col-3', 'col-lg-2');
+            quantity.classList.add('col-3', 'col-lg-3', 'text-center');
             subTotal.classList.add('col-3', 'col-lg-2');
             removeBtnCol.classList.add('col-3', 'col-lg-1');
 
@@ -96,7 +94,7 @@ class Cart extends Array {
             
             // Création du bouton pour retirer le produit
             removeBtn.addEventListener('click', () => this.removeProduct(currentProduct));
-            removeBtn.classList.add('btn', 'btn-primary');
+            removeBtn.classList.add('btn', 'btn-primary', 'btn-sm');
             removeBtn.textContent = '×';
             removeBtnCol.appendChild(removeBtn);
 
