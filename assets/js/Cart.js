@@ -108,10 +108,8 @@ class Cart extends Array {
 
         // Si panier vide : afficher un message
         if (!this.length) {
-            let orderLine = document.createElement('tr');
-            let emptyCartNotice = document.createElement('th');
-            emptyCartNotice.setAttribute('colspan', '4');
-            emptyCartNotice.classList.add('text-center');
+            let emptyCartNotice = document.createElement('div');
+            emptyCartNotice.classList.add('col-12', 'text-center', 'mt-2');
             emptyCartNotice.textContent = 'Votre panier est vide.';
             orderLine.appendChild(emptyCartNotice);
         }
