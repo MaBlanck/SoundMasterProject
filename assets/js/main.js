@@ -32,7 +32,10 @@ let cartBtn = document.getElementById('cart-button');
 cartBtn.addEventListener('click', () => cart.updateOrderList());
 // Initialisation des boutons d'ajout pour chaque produit
 addToCartBtns = document.querySelectorAll('button.shop');
-addToCartBtns.forEach(element => element.addEventListener('click', () => cart.addProduct(element.dataset.reference, 1)));
+addToCartBtns.forEach(element => element.addEventListener('click', () => {
+    cart.addProduct(element.dataset.reference, 1);
+    alert('Produit ajouté au panier');
+}));
 
 /*
 *FLECHE POUR REMONTER EN HAUT DE PAGE

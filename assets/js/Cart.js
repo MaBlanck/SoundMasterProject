@@ -36,9 +36,12 @@ class Cart extends Array {
         this.updateOrderList();
     }
 
-    // Fonction Appelée pour retire 1 produit
+    // Fonction Appelée pour retirer 1 produit
     removeItem(itemIndex) {
         this[itemIndex].quantity--;
+        if (this[itemIndex].quantity <= 0) {
+            this.removeProduct(itemIndex);
+        }
         this.updateOrderList();
     }
 
