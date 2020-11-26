@@ -83,14 +83,15 @@ for (const element of sectionListLink) {
 }
 
 
-function showSection() {
+function showSection(event) {
+    event.preventDefault();
     let sectionPosition = this.href.indexOf('#') + 1;
     let section = this.href.substring(sectionPosition);
 
     for (const element of sectionList) {
-        console.log(element.id, section);
         if (element.id == section) {
             element.style.display = 'block';
+            window.scrollTo(0, element.offsetTop - 65);
         } else {
             if (element.id != 'navBar') {
                 element.style.display = 'none';
