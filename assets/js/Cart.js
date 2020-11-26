@@ -68,11 +68,11 @@ class Cart extends Array {
             let removeBtn = document.createElement('button');
 
             // Ajout des classes Bootstrap aux éléments créés
-            description.classList.add('col-12', 'col-lg-4');
-            price.classList.add('col-3', 'col-lg-2');
-            quantity.classList.add('col-3', 'col-lg-3', 'text-center');
-            subTotal.classList.add('col-3', 'col-lg-2');
-            removeBtnCol.classList.add('col-3', 'col-lg-1');
+            description.classList.add('col-12', 'col-lg-4', 'mt-1');
+            price.classList.add('col-3', 'col-lg-2', 'text-center', 'mt-1');
+            quantity.classList.add('col-3', 'col-lg-3', 'text-center', 'mt-1');
+            subTotal.classList.add('col-3', 'col-lg-2', 'text-center', 'mt-1');
+            removeBtnCol.classList.add('col-3', 'col-lg-1', 'mt-1');
 
             // Remplissage des éléments
             description.textContent = orderItem.description;
